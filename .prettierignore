@@ -1,0 +1,7 @@
+node_modules
+dist
+package-lock.json
+public
+Screenshot*.png
+
+google-apps-script/SinglesValidation.gs

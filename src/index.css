@@ -1,0 +1,157 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+
+/* Before I do – Singles design system. */
+@theme {
+  --color-burgundy-950: #300a17;
+  --color-burgundy-900: #451025;
+  --color-burgundy-800: #5e1730;
+  --color-burgundy-700: #78223f;
+  --color-rose-700: #651b35;
+  --color-rose-600: #78223f;
+  --color-rose-500: #94314f;
+  --color-rose-400: #ad4164;
+  --color-rose-200: #e6b8c8;
+  --color-rose-100: #f4dce5;
+  --color-blush-50: #fff8fa;
+  --color-blush-100: #fdf0f4;
+  --color-blush-200: #f5dde6;
+  --color-neutral-100: #f5edf0;
+  --color-neutral-200: #e4cfd7;
+  --color-neutral-400: #a18a93;
+  --color-neutral-500: #79616b;
+  --color-neutral-700: #60444f;
+  --color-text: #3b1423;
+  --color-muted: #755460;
+  --color-error: #923f3f;
+  --color-error-background: #f7e8e4;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  --shadow-soft: 0 2px 10px rgb(48 10 23 / 10%);
+  --shadow-medium: 0 10px 28px rgb(48 10 23 / 18%);
+  --shadow-hard: 0 24px 60px rgb(48 10 23 / 24%);
+}
+
+html {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-blush-50);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--color-burgundy-950);
+}
+
+#hero,
+#registration {
+  scroll-margin-top: 6rem;
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-burgundy-900);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-rose-600);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-rose-400);
+}
+
+::selection {
+  background: var(--color-rose-200);
+  color: var(--color-burgundy-950);
+}
+
+:where(a, button, input, select, textarea, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 2px solid var(--color-rose-400);
+  outline-offset: 2px;
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wizard-step-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+.wizard-card {
+  animation: wizard-step-in 0.35s ease-out both;
+}
+.singles-theme {
+  color: var(--color-text);
+  background: var(--color-burgundy-950);
+}
+.singles-background {
+  background-position: center;
+}
+.singles-card {
+  color: var(--color-text);
+  background: rgb(255 248 250 / 88%);
+  border: 1px solid rgb(148 49 79 / 45%);
+  box-shadow: var(--shadow-hard);
+}
+.singles-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+}
